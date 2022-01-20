@@ -1,8 +1,10 @@
 # encoding = utf-8
+# matplotlib inline
 
 import imageio as iio
 import numpy as np
 from scipy import misc
+from matplotlib import pyplot as plt
 
 #
 # def Preprocess(src):
@@ -216,6 +218,9 @@ def main():
         layer.lr = 2.0
 
     epochs = 100
+    list_loss = []
+    list_accuracy = []
+    list_epoch = []
     for i in range(epochs):
         print('=========epochs ', i)
         loss_sum = 0
@@ -241,8 +246,24 @@ def main():
                     x = layer.forward(x)
                 accu = accuracy.forward(x, label)
                 print('loss: ', loss_sum / iter)
+                list_loss.append(loss_sum / iter)
                 print('accuracy: ', accu)
+                list_accuracy.append(accu)
+                list_epoch.append(i+1)
                 break
+    print(list_epoch)
+    print(list_loss)
+    print(list_accuracy)
+
+    plt.plot(list_epoch, list_loss, color = 'red')
+    plt.xlabel("epoch")
+    plt.ylabel("loss")
+    plt.show()
+
+    plt.plot(list_epoch, list_accuracy, color='blue')
+    plt.xlabel("epoch")
+    plt.ylabel("accuracy")
+    plt.show()
     #
     # while True:
     #     print("Enter path of image:")
