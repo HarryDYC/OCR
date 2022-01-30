@@ -28,9 +28,11 @@ First testing is conducted with the following perimeters:
 * Batch Size: 1,000
 * Learning Rate: 1,000
 * Epoch: 20
+
 The result are:
 * Loss: 0.071
 * Accuracy: 91.8%
+
 ![First Test Loss](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/1_loss.png)
 ![First Test Accuracy](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/1_accu.png)
 
@@ -38,18 +40,22 @@ This is a pretty good start, but we have to improve more. Since more layers mean
 Second testing adjusted perimeters:
 * Fully Connect: 26 neurons x 2
 * Activation: Sigmoid x 2
+
 The results are:
 * Loss: 0.281
 * Accuracy: 71.2%
+
 ![Second Test Loss](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/2_loss.png)
 ![Second Test Accuracy](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/2_accu.png)
 
 The result is even worse, however, increasing the epoch(letting it trains more rounds) seems to make the result better than having one layer.
 Third testing adjusted perimeter:
 * epoch: 100
+
 The results are:
 * Loss: 0.27
 * Accuracy: 97.6%
+
 ![Third Test Loss](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/3_loss.png)
 ![Third Test Accuracy](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/3_accu.png)
 
@@ -59,9 +65,11 @@ It's important to note that the maximum derivative value of Sigmoid is 0.25, and
 Forth testing adjusted perimeters:
 * Activation: Leaky Relu
 * Learning Rate: 250
+
 The results are:
 * Loss: 0.152
 * Accuracy: 97.7%
+
 ![Forth Test Loss](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/4_loss.png)
 ![Forth Test Accuracy](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/4_accu.png)
 
@@ -71,9 +79,11 @@ Fifth testing adjusted perimeters:
 * Activation: Sigmoid
 * Loss: Cross Entropy Loss
 * Learning Rate: 2
+
 The results are:
 * Loss: 0.066
 * Accuracy: 99.1%
+
 ![Fifth Test Loss](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/5_loss.png)
 ![Fifth Test Accuracy](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/5_accu.png)
 
