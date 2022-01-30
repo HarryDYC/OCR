@@ -10,7 +10,7 @@ Optical Character Reader, or OCR for short, is a technology that allows the mach
 - [Overview](#overview)
 - [Testing](#testing)
 - [Files](#files)
-- [Future Improvement](#futureimprovement)
+- [Future Improvement](#future_improvement)
 
 ## Background
 OCR is an technology that has been utilized into our everyday life, such as the license plate reader in the parking lot, or the scanner app in our phones. However, the earlier version has detrimental flaws, for example, it cannot record and learn from previous scans to learn from the mistakes. Thanksfully, with AI machine learning technology introduced, we can implement a neural network into OCR, giving it the ability to learn and adapt, therefore becomes more and more accurate.
