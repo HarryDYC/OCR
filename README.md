@@ -17,7 +17,9 @@ OCR is an technology that has been utilized into our everyday life, such as the 
 
 ## Overview
 A neural network is a web of inter-connected neurons, with a bias value on each neurons and a weight with each connection. Neurons will form layers, and these layers will form a completed neural network. There are input layer, output layer, and a single or multiple hidden layers. The data will be processed by input layer, forwarded toward the hidden layers for training and calculation, and passed to the output layer for result. 
+
 In the hidden layers, there is a fullt connected layer for training, an activation layer to normalize and de-linearize the data, a loss layer to determine the correctiness of the result, and an accuracy layer to give a percentage presentation of the accuracy. 
+
 To modify the variables to minimize the loss and improve the algorithm, a technology called back propagation is implemented. It will adjust the weights and biases to provide a better model.
 
 ## Testing
@@ -60,8 +62,11 @@ The results are:
 ![Third Test Accuracy](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/3_accu.png)
 
 Turns out the model is just adapting "slower" than usual. The reason of that is due to the gradient vanishing problem. Due to the nature of the derivative of Sigmoid function, the derivative value(which is essential to adjusting the variables to make the model better) will be close to zero. There are two ways to resolve this problem: change an activation function, or change a loss function.
+
 First step is to change the activation function, since Sigmoid is causing the gradient vanishing problem. Leaky Relu replacing Sigmoid can theoretically solve the issue since it won't have derivative close to zero. 
+
 It's important to note that the maximum derivative value of Sigmoid is 0.25, and that of Leaky Relu is 1. Therefore, the learning rate needs to be adjusted to 1/4, otherwise the variable calibration will oscillate.
+
 Forth testing adjusted perimeters:
 * Activation: Leaky Relu
 * Learning Rate: 250
@@ -74,7 +79,9 @@ The results are:
 ![Forth Test Accuracy](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/4_accu.png)
 
 Another method is to change the loss function that will compliment with Sigmoid. Cross Entropy Loss can be used because during back propagation, the denominator of Cross Entropy Loss can eliminate Sigmoid during multiplication, thus negating the gradient vanishing problem.
+
 Same as Leaky Relu, the learning rate should be adjusted accordingly. The previous learning rate of 250 causes the variable calibration to reach negative infinite, suggesting that the learning rate is far too large. To accomodate, I set the learning rate to 2.
+
 Fifth testing adjusted perimeters:
 * Activation: Sigmoid
 * Loss: Cross Entropy Loss
