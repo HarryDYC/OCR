@@ -10,7 +10,7 @@ Optical Character Reader, or OCR for short, is a technology that allows the mach
 - [Overview](#overview)
 - [Testing](#testing)
 - [Files](#files)
-- [Future Improvement](#future improvement)
+- [Future Improvement](#futureimprovement)
 
 ## Background
 OCR is an technology that has been utilized into our everyday life, such as the license plate reader in the parking lot, or the scanner app in our phones. However, the earlier version has detrimental flaws, for example, it cannot record and learn from previous scans to learn from the mistakes. Thanksfully, with AI machine learning technology introduced, we can implement a neural network into OCR, giving it the ability to learn and adapt, therefore becomes more and more accurate.
@@ -31,7 +31,9 @@ First testing is conducted with the following perimeters:
 The result are:
 * Loss: 0.071
 * Accuracy: 91.8%
-![First Test Loss](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/1_loss.png)![First Test Accuracy](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/1_accu.png)
+![First Test Loss](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/1_loss.png)
+![First Test Accuracy](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/1_accu.png)
+
 This is a pretty good start, but we have to improve more. Since more layers means deeper learning, I add another fully connected layer and activation layer.
 Second testing adjusted perimeters:
 * Fully Connect: 26 neurons x 2
@@ -39,14 +41,18 @@ Second testing adjusted perimeters:
 The results are:
 * Loss: 0.281
 * Accuracy: 71.2%
-![Second Test Loss](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/2_loss.png)![Second Test Accuracy](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/2_accu.png)
+![Second Test Loss](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/2_loss.png)
+![Second Test Accuracy](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/2_accu.png)
+
 The result is even worse, however, increasing the epoch(letting it trains more rounds) seems to make the result better than having one layer.
 Third testing adjusted perimeter:
 * epoch: 100
 The results are:
 * Loss: 0.27
 * Accuracy: 97.6%
-![Third Test Loss](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/3_loss.png)![Third Test Accuracy](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/3_accu.png)
+![Third Test Loss](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/3_loss.png)
+![Third Test Accuracy](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/3_accu.png)
+
 Turns out the model is just adapting "slower" than usual. The reason of that is due to the gradient vanishing problem. Due to the nature of the derivative of Sigmoid function, the derivative value(which is essential to adjusting the variables to make the model better) will be close to zero. There are two ways to resolve this problem: change an activation function, or change a loss function.
 First step is to change the activation function, since Sigmoid is causing the gradient vanishing problem. Leaky Relu replacing Sigmoid can theoretically solve the issue since it won't have derivative close to zero. 
 It's important to note that the maximum derivative value of Sigmoid is 0.25, and that of Leaky Relu is 1. Therefore, the learning rate needs to be adjusted to 1/4, otherwise the variable calibration will oscillate.
@@ -56,7 +62,9 @@ Forth testing adjusted perimeters:
 The results are:
 * Loss: 0.152
 * Accuracy: 97.7%
-![Forth Test Loss](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/4_loss.png)![Forth Test Accuracy](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/4_accu.png)
+![Forth Test Loss](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/4_loss.png)
+![Forth Test Accuracy](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/4_accu.png)
+
 Another method is to change the loss function that will compliment with Sigmoid. Cross Entropy Loss can be used because during back propagation, the denominator of Cross Entropy Loss can eliminate Sigmoid during multiplication, thus negating the gradient vanishing problem.
 Same as Leaky Relu, the learning rate should be adjusted accordingly. The previous learning rate of 250 causes the variable calibration to reach negative infinite, suggesting that the learning rate is far too large. To accomodate, I set the learning rate to 2.
 Fifth testing adjusted perimeters:
@@ -66,7 +74,9 @@ Fifth testing adjusted perimeters:
 The results are:
 * Loss: 0.066
 * Accuracy: 99.1%
-![Fifth Test Loss](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/5_loss.png)![Fifth Test Accuracy](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/5_accu.png)
+![Fifth Test Loss](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/5_loss.png)
+![Fifth Test Accuracy](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/5_accu.png)
+
 With this modification, the model reaches its peak performance.
 
 ## Files
