@@ -24,7 +24,7 @@ To modify the variables to minimize the loss and improve the algorithm, a techno
 
 The overall structure of the network is visualized as such:
 
-![NN Flowchart](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/Untitled%20Diagram.drawio)
+![NN Flowchart](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/NN%20Flowchart.drawio.png)
 
 ## Testing
 First testing is conducted with the following perimeters:
