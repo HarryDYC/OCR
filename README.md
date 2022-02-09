@@ -43,9 +43,13 @@ The result are:
 ![First Test Accuracy](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/1_accu.png)
 
 This is a pretty good start, but we have to improve more. Since more layers means deeper learning, I add another fully connected layer and activation layer.
-Second testing adjusted perimeters:
-* Fully Connect: 26 neurons x 2
-* Activation: Sigmoid x 2
+Second testing perimeters (adjusted value is shown in bold):
+* **Fully Connect: 26 neurons x 2**
+* **Activation: Sigmoid x 2**
+* Loss: Quadratic Loss
+* Batch Size: 1,000
+* Learning Rate: 1,000
+* Epoch: 20
 
 The results are:
 * Loss: 0.281
@@ -56,7 +60,12 @@ The results are:
 
 The result is even worse, however, increasing the epoch(letting it trains more rounds) seems to make the result better than having one layer.
 Third testing adjusted perimeter:
-* epoch: 100
+* Fully Connect: 26 neurons x 2
+* Activation: Sigmoid x 2
+* Loss: Quadratic Loss
+* Batch Size: 1,000
+* Learning Rate: 1,000
+* **Epoch: 100**
 
 The results are:
 * Loss: 0.27
@@ -72,8 +81,12 @@ First step is to change the activation function, since Sigmoid is causing the gr
 It's important to note that the maximum derivative value of Sigmoid is 0.25, and that of Leaky Relu is 1. Therefore, the learning rate needs to be adjusted to 1/4, otherwise the variable calibration will oscillate.
 
 Forth testing adjusted perimeters:
-* Activation: Leaky Relu
-* Learning Rate: 250
+* Fully Connect: 26 neurons
+* **Activation: Leaky Relu**
+* Loss: Quadratic Loss
+* Batch Size: 1,000
+* **Learning Rate: 250**
+* Epoch: 100
 
 The results are:
 * Loss: 0.152
@@ -87,9 +100,12 @@ Another method is to change the loss function that will compliment with Sigmoid.
 Same as Leaky Relu, the learning rate should be adjusted accordingly. The previous learning rate of 250 causes the variable calibration to reach negative infinite, suggesting that the learning rate is far too large. To accomodate, I set the learning rate to 2.
 
 Fifth testing adjusted perimeters:
-* Activation: Sigmoid
-* Loss: Cross Entropy Loss
-* Learning Rate: 2
+* Fully Connect: 26 neurons
+* **Activation: Sigmoid**
+* **Loss: Cross Entropy Loss Loss**
+* Batch Size: 1,000
+* **Learning Rate: 2**
+* Epoch: 100
 
 The results are:
 * Loss: 0.066
