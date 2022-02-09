@@ -22,6 +22,10 @@ In the hidden layers, there is a fullt connected layer for training, an activati
 
 To modify the variables to minimize the loss and improve the algorithm, a technology called back propagation is implemented. It will adjust the weights and biases to provide a better model.
 
+The overall structure of the network is visualized as such:
+
+![NN Flowchart](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/Untitled%20Diagram.drawio)
+
 ## Testing
 First testing is conducted with the following perimeters:
 * Fully Connect: 26 neurons
