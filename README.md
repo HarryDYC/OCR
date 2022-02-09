@@ -26,6 +26,8 @@ The overall structure of the network is visualized as such:
 
 ![NN Flowchart](https://github.com/HarryDYC/OCR/blob/main/TestResultGraph/NN%20Flowchart.drawio.png)
 
+Five tests were conducted to adjust and improve the existing model. The best result so far is loss value of 0.066 and a 99.1% accuracy. 
+
 ## Testing
 First testing is conducted with the following perimeters:
 * Fully Connect: 26 neurons
